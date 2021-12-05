@@ -1,6 +1,7 @@
 ﻿using DemoBlazeWebsite.Settings;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace DemoBlazeWebsite.Pages
 {
@@ -15,8 +16,8 @@ namespace DemoBlazeWebsite.Pages
 
         private IWebElement samsungGalaxyS6 => _driver.FindElement(By.CssSelector("[class=\"hrefch\"]"));
         private IWebElement addToCart => _driver.FindElement(By.CssSelector("[onclick=\"addToCart(1)\"]"));
-        private IWebElement clikOnCart => _driver.FindElement(By.CssSelector(" [onclick=\"showcart()\"]"));
-        private IWebElement samsungGalaxyS6Added => _driver.FindElement(By.CssSelector("//*[@id=\"tbodyid\"]/tr[1]/td[2]"));
+        private IWebElement clikOnCart => _driver.FindElement(By.Id("cartur"));
+        private IWebElement samsungGalaxyS6Added => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/tr[1]/td[2]"));
 
         public void GoToHomePage(UrlSettings urlSettings)
         {
@@ -32,13 +33,14 @@ namespace DemoBlazeWebsite.Pages
         public void AddToCart()
         {
             addToCart.Click();
-        }
-
-        public void ClickonCart()
-        {
+            Thread.Sleep(5000);
             _driver.SwitchTo().Alert().Accept();
             clikOnCart.Click();
-            Assert.IsTrue(samsungGalaxyS6Added.Text.Contains("Samsung"));
+        }
+
+        public string CheckTheCart()
+        {
+            return samsungGalaxyS6Added.Text;
         }
     }
 }

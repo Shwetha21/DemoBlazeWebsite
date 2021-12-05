@@ -1,4 +1,5 @@
 ﻿using DemoBlazeWebsite.Lib;
+using DemoBlazeWebsite.Pages;
 using DemoBlazeWebsite.Settings;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -9,17 +10,12 @@ namespace DemoBlazeWebsite.Steps
     [Binding]
     public class BuyPhoneSteps
     {
-
-        readonly IWebDriver _driver;
-
         private UrlSettings _urlSettings { get; }
 
         private DemoBlazeMainWebsite _demoBlazemainWebsite = new DemoBlazeMainWebsite("chrome");
 
-        public BuyPhoneSteps(IWebDriver driver,
-                        UrlSettings urlSettings)
+        public BuyPhoneSteps(UrlSettings urlSettings)
         {
-            _driver = driver;
             _urlSettings = urlSettings;
         }
 
@@ -44,8 +40,13 @@ namespace DemoBlazeWebsite.Steps
         [Then(@"the phone should be succeffully added to the cart")]
         public void ThenThePhoneShouldBeSucceffullyAddedToTheCart()
         {
-            _demoBlazemainWebsite._homePage.ClickonCart();
+            Assert.That(_demoBlazemainWebsite._homePage.CheckTheCart(), Does.Contain("Samsung"));
         }
 
+        [AfterScenario]
+        public void DisposeWebdriver()
+        {
+            _demoBlazemainWebsite._driver.Dispose();
+        }
     }
 }

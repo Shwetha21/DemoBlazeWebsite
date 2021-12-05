@@ -25,9 +25,6 @@ namespace DemoBlazeWebsite.Autofac
             builder.RegisterTypes(typeof(TestDependencies).Assembly.GetTypes()
                 .Where(t => Attribute.IsDefined(t, typeof(BindingAttribute))).ToArray()).SingleInstance();
 
-            IWebDriver driver = new ChromeDriver(Directory.GetCurrentDirectory());
-            builder.Register(c => driver).AsSelf().SingleInstance();
-
             return builder;
         }
 

@@ -1,6 +1,5 @@
 ﻿using DemoBlazeWebsite.Lib.Driver_config;
 using DemoBlazeWebsite.Pages;
-using DemoBlazeWebsite.Settings;
 using OpenQA.Selenium;
 
 namespace DemoBlazeWebsite.Lib
@@ -21,7 +20,6 @@ namespace DemoBlazeWebsite.Lib
             _homePage = new HomePage(_driver);
             _logInPage = new LogInPage(_driver);
             _signInPage = new SignInPage(_driver);
-
         }
 
     }
