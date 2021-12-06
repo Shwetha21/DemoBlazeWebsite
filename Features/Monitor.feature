@@ -5,7 +5,8 @@
 
 @mytag
 Scenario: Add two numbers
-	Given the first number is 50
-	And the second number is 70
-	When the two numbers are added
-	Then the result should be 120
+	Given i visit home page
+	And I am in Monitor section
+	And choose asus monitor
+	When i add the monitor to the cart
+	Then monitor should be successfully added

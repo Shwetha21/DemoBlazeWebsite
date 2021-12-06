@@ -21,7 +21,10 @@ namespace DemoBlazeWebsite.Pages
         private IWebElement laptop => _driver.FindElement(By.CssSelector("[onclick=\"byCat('notebook')\"]"));
         private IWebElement sonyVaioI7 => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/div[2]/div/div/h4/a"));
         private IWebElement sonyVaioI7Added => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/tr/td[2]"));
-
+        private IWebElement monitor => _driver.FindElement(By.CssSelector("[onclick=\"byCat('monitor')\"]"));
+        private IWebElement asusHd => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/div[2]/div/div/h4/a"));
+        private IWebElement addAsusHdToCart => _driver.FindElement(By.CssSelector("[onclick=\"addToCart(14)\"]"));
+        private IWebElement asusHdAdded => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/tr/td[2]"));
 
         public void GoToHomePage(UrlSettings urlSettings)
         {
@@ -68,6 +71,29 @@ namespace DemoBlazeWebsite.Pages
             Thread.Sleep(5000);
             _driver.SwitchTo().Alert().Accept();
             clikOnCart.Click();
+        }
+
+        public void ClickOnMonitor()
+        {
+            monitor.Click();
+        }
+
+        public void SelectAsusHd()
+        {
+            asusHd.Click();
+        }
+
+        public void AddAsusHdToCart()
+        {
+            addAsusHdToCart.Click();
+            Thread.Sleep(5000);
+            _driver.SwitchTo().Alert().Accept();
+            clikOnCart.Click();
+        }
+
+        public string CheckAsusHdAdded()
+        {
+            return asusHdAdded.Text;
         }
     }
 }
