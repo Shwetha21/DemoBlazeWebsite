@@ -1,14 +1,11 @@
 ﻿using Bogus;
 using DemoBlazeWebsite.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DemoBlazeWebsite.Testdata
 {
     public class CustomerTestData
     {
-        public static Customer GetName()
+        public static Customer GetDetails()
         {
             var customer = new Faker<Customer>(locale: "en_GB")
                 .RuleFor(model => model.Name, faker => faker.Person.FullName)

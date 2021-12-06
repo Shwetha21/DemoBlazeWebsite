@@ -20,6 +20,7 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="96.0.4664.4500" />
     <PackageReference Include="SpecFlow" Version="3.9.40" />
     <PackageReference Include="SpecFlow.Autofac" Version="3.9.40" />
+    <PackageReference Include="SpecFlow.NUnit.Runners" Version="3.7.38" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.40" />
     <PackageReference Include="SpecFlow.NUnit" Version="3.9.40" />
   </ItemGroup>
