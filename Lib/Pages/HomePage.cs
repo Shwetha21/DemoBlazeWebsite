@@ -1,5 +1,4 @@
 ﻿using DemoBlazeWebsite.Settings;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using System.Threading;
 
@@ -16,8 +15,13 @@ namespace DemoBlazeWebsite.Pages
 
         private IWebElement samsungGalaxyS6 => _driver.FindElement(By.CssSelector("[class=\"hrefch\"]"));
         private IWebElement addToCart => _driver.FindElement(By.CssSelector("[onclick=\"addToCart(1)\"]"));
+        private IWebElement addSonyVaio7ToCart => _driver.FindElement(By.CssSelector("[onclick=\"addToCart(9)\"]"));
         private IWebElement clikOnCart => _driver.FindElement(By.Id("cartur"));
         private IWebElement samsungGalaxyS6Added => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/tr[1]/td[2]"));
+        private IWebElement laptop => _driver.FindElement(By.CssSelector("[onclick=\"byCat('notebook')\"]"));
+        private IWebElement sonyVaioI7 => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/div[2]/div/div/h4/a"));
+        private IWebElement sonyVaioI7Added => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/tr/td[2]"));
+
 
         public void GoToHomePage(UrlSettings urlSettings)
         {
@@ -41,6 +45,29 @@ namespace DemoBlazeWebsite.Pages
         public string CheckTheCart()
         {
             return samsungGalaxyS6Added.Text;
+        }
+
+        public void ClickOnLaptop()
+        {
+            laptop.Click();
+        }
+
+        public void SelectSonyVaioI7()
+        {
+            sonyVaioI7.Click();
+        }
+
+        public string CheckSonyVaioI7()
+        {
+            return sonyVaioI7Added.Text;
+        }
+
+        public void AddSovyVaioI7ToCart()
+        {
+            addSonyVaio7ToCart.Click();
+            Thread.Sleep(5000);
+            _driver.SwitchTo().Alert().Accept();
+            clikOnCart.Click();
         }
     }
 }
