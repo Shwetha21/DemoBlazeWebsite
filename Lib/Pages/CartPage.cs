@@ -29,7 +29,7 @@ namespace DemoBlazeWebsite.Pages
         public void GoToCartPage(UrlSettings urlSettings)
         {
             _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl($"{urlSettings.DemoBlazeUrl}/cart");
+            _driver.Navigate().GoToUrl($"{urlSettings.DemoBlazeUrl}/cart.html");
         }
 
         public void PlaceOrder()
