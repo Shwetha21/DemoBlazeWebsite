@@ -28,7 +28,7 @@ namespace DemoBlazeWebsite.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Place an Order.feature"
+#line 1 "PlaceAnOrder.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]

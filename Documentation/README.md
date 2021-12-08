@@ -1,6 +1,7 @@
 ﻿# DemoBlaze Website Testing
 
-1. Have added the code to test functionality for adding a product to Cart.
-2. Have half implemented the code to test placing the order from the cart as i had difficulty in running the test as it was not detected by the TestRunner. ( Had to edit Phone.feature.cs file(line 117 to 132 which is not recommended to make sure the Purchase functionality works fine)
-3. Have generated the TestDate using Bogus package 
+#### Changes made after first review.
 
+1. This time I stick to the question asked.
+2. Had to update few of the package versions as the previous ones had an issue with updating the version.
+3. Next refactoring bits would like to seperate laptop, monitor and phone bits from home page.  
