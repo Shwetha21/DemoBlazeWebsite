@@ -11,10 +11,12 @@ namespace DemoBlazeWebsite.Steps
     {
         private UrlSettings _urlSettings { get; }
 
-        private DemoBlazeMainWebsite _demoBlazemainWebsite = new DemoBlazeMainWebsite("chrome");
-        public BuyMonitorSteps(UrlSettings urlSettings)
+        private DemoBlazeMainWebsite _demoBlazemainWebsite; 
+        public BuyMonitorSteps(UrlSettings urlSettings,
+                                DemoBlazeMainWebsite demoBlazemainWebsite)
         {
             _urlSettings = urlSettings;
+            _demoBlazemainWebsite = demoBlazemainWebsite;
         }
 
         [Given(@"i visit home page")]

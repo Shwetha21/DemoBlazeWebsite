@@ -13,7 +13,7 @@ namespace DemoBlazeWebsite.Lib
         public readonly SignInPage _signInPage;
 
 
-        public DemoBlazeMainWebsite(string drivername, int pageLoadWaitInSecs = 10, int implivitwaitInSecs = 10)
+        public DemoBlazeMainWebsite(string drivername = "chrome", int pageLoadWaitInSecs = 10, int implivitwaitInSecs = 10)
         {
             _driver = new SeleniumDriverConfig(drivername, pageLoadWaitInSecs, implivitwaitInSecs).Driver;
             _cartPage = new CartPage(_driver);

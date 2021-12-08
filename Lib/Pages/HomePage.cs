@@ -19,7 +19,7 @@ namespace DemoBlazeWebsite.Pages
         private IWebElement clikOnCart => _driver.FindElement(By.Id("cartur"));
         private IWebElement samsungGalaxyS6Added => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/tr[1]/td[2]"));
         private IWebElement laptop => _driver.FindElement(By.CssSelector("[onclick=\"byCat('notebook')\"]"));
-        private IWebElement sonyVaioI7 => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/div[2]/div/div/h4/a"));
+        private IWebElement sonyVaioI7 => _driver.FindElement(By.CssSelector("[href=\"prod.html?idp_=9\"]"));
         private IWebElement sonyVaioI7Added => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/tr/td[2]"));
         private IWebElement monitor => _driver.FindElement(By.CssSelector("[onclick=\"byCat('monitor')\"]"));
         private IWebElement asusHd => _driver.FindElement(By.XPath("//*[@id=\"tbodyid\"]/div[2]/div/div/h4/a"));
@@ -57,6 +57,7 @@ namespace DemoBlazeWebsite.Pages
 
         public void SelectSonyVaioI7()
         {
+            Thread.Sleep(1000);
             sonyVaioI7.Click();
         }
 
@@ -75,11 +76,13 @@ namespace DemoBlazeWebsite.Pages
 
         public void ClickOnMonitor()
         {
+            IWebElement monitor = _driver.FindElement(By.CssSelector("[onclick=\"byCat('monitor')\"]"));
             monitor.Click();
         }
 
         public void SelectAsusHd()
         {
+            Thread.Sleep(5000);
             asusHd.Click();
         }
 

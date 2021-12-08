@@ -10,11 +10,13 @@ namespace DemoBlazeWebsite.Steps
     {
         private UrlSettings _urlSettings { get; }
 
-        private DemoBlazeMainWebsite _demoBlazemainWebsite = new DemoBlazeMainWebsite("chrome");
+        private DemoBlazeMainWebsite _demoBlazemainWebsite; 
 
-        public BuyPhoneSteps(UrlSettings urlSettings)
+        public BuyPhoneSteps(UrlSettings urlSettings,
+                            DemoBlazeMainWebsite demoBlazemainWebsite)
         {
             _urlSettings = urlSettings;
+            _demoBlazemainWebsite = demoBlazemainWebsite;
         }
 
         #region AddToCart

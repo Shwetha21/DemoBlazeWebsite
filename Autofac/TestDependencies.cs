@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using DemoBlazeWebsite.Lib;
 using Microsoft.Extensions.Configuration;
 using SpecFlow.Autofac;
 using System;
@@ -22,6 +23,8 @@ namespace DemoBlazeWebsite.Autofac
             builder.RegisterModule(new TestSettingAutofacConfig(configuration));
             builder.RegisterTypes(typeof(TestDependencies).Assembly.GetTypes()
                 .Where(t => Attribute.IsDefined(t, typeof(BindingAttribute))).ToArray()).SingleInstance();
+
+            builder.RegisterType<DemoBlazeMainWebsite>().AsSelf().SingleInstance();
 
             return builder;
         }
